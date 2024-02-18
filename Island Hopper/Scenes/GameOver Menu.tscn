@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://8d8130hacyfx"]
+
+[ext_resource type="Theme" uid="uid://dmo61tdv4i0ng" path="res://Theme/Main Menu Theme.tres" id="1_2qxll"]
+[ext_resource type="Script" path="res://Scripts/GameOver_Menu.gd" id="2_ei8o2"]
+
+[node name="End Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2qxll")
+script = ExtResource("2_ei8o2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0862745, 0.113725, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Menu" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "GAME over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button container" type="VBoxContainer" parent="MarginContainer/Menu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Button container2" type="VBoxContainer" parent="MarginContainer/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RestartGameButton" type="Button" parent="MarginContainer/Menu/Button container2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Restart"
+
+[node name="QuitGameButton" type="Button" parent="MarginContainer/Menu/Button container2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit
+"
+
+[connection signal="pressed" from="MarginContainer/Menu/Button container2/RestartGameButton" to="." method="_on_restart_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu/Button container2/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
